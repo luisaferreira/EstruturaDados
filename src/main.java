@@ -10,7 +10,10 @@ public class main {
 		lista.Adicionar(1);
 		lista.Adicionar(0);
 		lista.Imprimir();
-		System.out.println(lista.ListaVazia());
+		System.out.println("");
+		lista.RemoverElementoPorConteudo(1);
+		lista.Imprimir();
+		//System.out.println(lista.ListaVazia());
 	}
 
 }

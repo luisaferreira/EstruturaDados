@@ -25,12 +25,36 @@ public class Lista {
 	}
 	
 	public void Imprimir() {
-		if(ListaVazia()) {
+		if(ListaVazia())
 			System.out.println("Lista vazia!");
-			return;
-		}
 		
 		for(No aux = this.Referencia; aux != null; aux = aux.getNext())
 			System.out.println("[" + aux.getInfo() + "]");
+	}
+	
+	public void RemoverPrimeiroElemento() {
+		if (ListaVazia())
+			return;
+		
+		this.setReferencia(Referencia.getNext());
+	}
+	
+	public void RemoverElementoPorConteudo(int info) {
+		if(ListaVazia())
+			return;
+		
+		if(this.Referencia.getInfo() == info) {
+			this.setReferencia(Referencia.getNext());
+			return;
+		}
+		
+		No no = null;
+		
+		for(No aux = this.Referencia; aux != null; aux = aux.getNext()) {
+			if(aux.getInfo() == info)
+				no.setNext(aux.getNext());
+			
+			no = aux;
+		}
 	}
 }
