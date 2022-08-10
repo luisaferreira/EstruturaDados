@@ -32,5 +32,24 @@ public class Lista {
 		this.setReferencia(item);
 	}
 	
+	public void Imprimir() {
+		if(ListaVazia())
+			System.out.println("Lista vazia!");
+		
+		int infoNext = -1;
+		int infoPrev = -1;
+		for(No aux = this.Referencia; aux != null; aux = aux.getNext()) {
+			if(aux.getPrev() != null)
+				infoPrev = aux.getPrev().getInfo();
+			if(aux.getNext() != null)
+				infoNext = aux.getNext().getInfo();
+			
+			System.out.println("[ Info: "+ aux.getInfo()+" ], [ Prev: "+ infoPrev + " ], [ Next: "+ infoNext +" ]");
+			
+			infoNext = -1;
+			infoPrev = -1;		
+		}
+	}
+	
 	
 }
