@@ -10,6 +10,11 @@ public class ListaDuplamenteEncadeada {
 		lista.Inserir(1);
 		lista.Inserir(0);
 		lista.Imprimir();
+		
+		System.out.println("");
+		
+		lista.Remover(2);
+		lista.Imprimir();
 	}
 	
 	

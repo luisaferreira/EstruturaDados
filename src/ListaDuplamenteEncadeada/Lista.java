@@ -3,19 +3,23 @@ package ListaDuplamenteEncadeada;
 public class Lista {
 	private No Referencia;
 
-	public Lista() {
+	public Lista()
+	{
 		this.setReferencia(null);
 	}
 	
-	public No getReferencia() {
+	public No getReferencia()
+	{
 		return Referencia;
 	}
 
-	public void setReferencia(No referencia) {
+	public void setReferencia(No referencia)
+	{
 		Referencia = referencia;
 	}
 	
-	public boolean ListaVazia() {
+	public boolean ListaVazia()
+	{
 		return this.getReferencia() == null;
 	}
 	
@@ -51,5 +55,30 @@ public class Lista {
 		}
 	}
 	
-	
+	public void Remover(int info)
+	{
+		if(ListaVazia())
+			return;
+		
+		if(this.getReferencia().getInfo() == info)
+		{
+			this.setReferencia(this.Referencia.getNext());
+			this.getReferencia().setPrev(null);
+			return;
+		}
+		
+		No next = null;
+		No prev = null;
+		for(No aux = this.getReferencia(); aux != null; aux = aux.getNext()) 
+		{
+			next = aux.getNext();
+			if(aux.getInfo() == info)
+			{
+				prev.setNext(aux.getNext());
+				next.setPrev(aux.getPrev());
+			}
+			
+			prev = aux;
+		}
+	}
 }
